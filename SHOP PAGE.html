@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Online Store</title>
+    <!-- Font Awesome Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f0f4f8; /* Light background */
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #555; /* Darker background for the menu */
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        nav a i {
+            margin-right: 8px;
+        }
+
+        nav a:hover {
+            background-color: #666; /* Hover color for links */
+            border-radius: 5px; /* Rounded corners for hover effect */
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            justify-content: center; /* Center products */
+        }
+
+        .product {
+            flex: 1 1 calc(20% - 20px); /* Takes up to 20% of the container width minus the gap */
+            max-width: calc(20% - 20px);
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            text-align: center;
+            padding: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Prevent overflow of captions */
+            transition: transform 0.3s; /* Animation for scaling */
+        }
+
+        .product:hover {
+            transform: scale(1.05); /* Scale up on hover */
+        }
+
+        .product img {
+            width: 100%;
+            height: 150px; /* Adjust height for uniformity */
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s; /* Animation for image zoom */
+        }
+
+        .product img:hover {
+            transform: scale(1.1); /* Zoom in on hover */
+        }
+
+        .caption {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .price {
+            font-size: 16px;
+            color: #888;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .cart-button {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Shop Our Products</h1>
+    </header>
+
+    <!-- Navigation Menu with Icons -->
+    <nav>
+        <a href="HOME PAGE.html"><i class="fas fa-home"></i> Home</a>
+        <a href="SHOP PAGE.html"><i class="fas fa-shopping-cart"></i> Shop</a>
+        <a href="cart.html" class="cart-button"><i class="fas fa-shopping-basket cart-icon"></i> Cart <span class="cart-count">0</span></a>
+        <a href="#"><i class="fas fa-info-circle"></i> About Us</a>
+        <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+    </nav>
+
+    <!-- Product Section (Side by Side with Captions and Prices) -->
+    <div class="product-container">
+        <div class="product">
+            <a href="product1.html">
+                <img src="freshly deo.png" alt="Product 1">
+                <p class="caption">Product 1</p>
+                <p class="price">$20.00</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product2.html">
+                <img src="freshly.png" alt="Product 2">
+                <p class="caption">Product 2</p>
+                <p class="price">$35.00</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product3.html">
+                <img src="perfume scandalous.png" alt="Product 3">
+                <p class="caption">Product 3</p>
+                <p class="price">$50.00</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product4.html">
+                <img src="https://via.placeholder.com/200x200" alt="Product 4">
+                <p class="caption">Product 4</p>
+                <p class="price">$25.00</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product5.html">
+                <img src="https://via.placeholder.com/200x200" alt="Product 5">
+                <p class="caption">Product 5</p>
+                <p class="price">$15.00</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product6.html">
+                <img src="https://via.placeholder.com/200x200" alt="Product 6">
+                <p class="caption">Product 6</p>
+                <p class="price">$30.00</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product7.html">
+                <img src="https://via.placeholder.com/200x200" alt="Product 7">
+                <p class="caption">Product 7</p>
+                <p class="price">$40.00</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product8.html">
+                <img src="https://via.placeholder.com/200x200" alt="Product 8">
+                <p class="caption">Product 8</p>
+                <p class="price">$22.00</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product9.html">
+                <img src="https://via.placeholder.com/200x200" alt="Product 9">
+                <p class="caption">Product 9</p>
+                <p class="price">$28.00</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product10.html">
+                <img src="https://via.placeholder.com/200x200" alt="Product 10">
+                <p class="caption">Product 10</p>
+                <p class="price">$18.00</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product11.html">
+                <img src="https://via.placeholder.com/200x200" alt="Product 11">
+                <p class="caption">Product 11</p>
+                <p class="price">$45.00</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product12.html">
+                <img src="https://via.placeholder.com/200x200" alt="Product 12">
+                <p class="caption">Product 12</p>
+                <p class="price">$33.00</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product13.html">
+                <img src="https://via.placeholder.com/200x200" alt="Product 13">
+                <p class="caption">Product 13</p>
+                <p class="price">$29.00</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product14.html">
+                <img src="https://via.placeholder.com/200x200" alt="Product 14">
+                <p class="caption">Product 14</p>
+                <p class="price">$24.00</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product15.html">
+                <img src="https://via.placeholder.com/200x200" alt="Product 15">
+                <p class="caption">Product 15</p>
+                <p class="price">$36.00</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product16.html">
+                <img src="https://via.placeholder.com/200x200" alt="Product 16">
+                <p class="caption">Product 16</p>
+                <p class="price">$37.00</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product17.html">
+                <img src="https://via.placeholder.com/200x200" alt="Product 17">
+                <p class="caption">Product 17</p>
+                <p class="price">$48.00</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product18.html">
+                <img src="https://via.placeholder.com/200x200" alt="Product 18">
+                <p class="caption">Product 18</p>
+                <p class="price">$34.00</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product19.html">
+                <img src="https://via.placeholder.com/200x200" alt="Product 19">
+                <p class="caption">Product 19</p>
+                <p class="price">$20.00</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="product20.html">
+                <img src="https://via.placeholder.com/200x200" alt="Product 20">
+                <p class="caption">Product 20</p>
+                <p class="price">$27.00</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Online Store. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Cart Page (cart.html) -->
+    <script>
+        // This script is for demonstration purposes. In a real application, you would handle adding products to the cart dynamically.
+        const cartProducts = [
+            { name: "Product 1", price: 20.00 },
+            { name: "Product 2", price: 35.00 },
+            { name: "Product 3", price: 50.00 },
+            // Add more products as needed
+        ];
+
+        function updateCartCount() {
+            const cartCount = document.querySelector('.cart-count');
+            cartCount.textContent = cartProducts.length;
+        }
+
+        updateCartCount(); // Update cart count on page load
+    </script>
+
+    <!-- Font Awesome JS for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</body>
+
+</html>

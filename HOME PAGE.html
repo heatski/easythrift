@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Online Store</title>
+    <!-- Font Awesome Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f7f7f7;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff6f61, #debb77);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            display: block;
+            height: 2px;
+            background: #fff;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 0;
+            transition: width 0.4s ease, left 0.4s ease;
+        }
+
+        nav a:hover {
+            background-color: #555;
+            transform: translateY(-2px); /* Lift effect on hover */
+        }
+
+        nav a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Home Page Big Pictures and Stories */
+        .home-section {
+            padding: 40px;
+            text-align: center;
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center items horizontally */
+        }
+
+        .home-item {
+            position: relative; /* Allows positioning of captions */
+            margin: 10px 0; /* Margin between items */
+            width: 100%; /* Full width */
+            max-width: 800px; /* Maximum width */
+            animation: fadeInUp 0.5s ease forwards; /* Animation when entering */
+            opacity: 0; /* Start hidden for fade-in effect */
+            transform: translateY(20px); /* Slide up effect */
+        }
+
+        /* Keyframes for fadeInUp animation */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1; /* Fully visible */
+                transform: translateY(0); /* Original position */
+            }
+        }
+
+        .home-item img {
+            width: 100%;
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease; /* Animation on hover */
+            display: block; /* Block display to remove gaps */
+        }
+
+        .home-item img:hover {
+            transform: scale(1.05); /* Zoom effect on image hover */
+        }
+
+        .caption {
+            position: absolute; /* Positioned inside the image */
+            bottom: 20px; /* Positioned from the bottom */
+            left: 0;
+            right: 0;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            color: #fff;
+            font-size: 20px;
+            text-align: center;
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        footer {
+            background: linear-gradient(135deg, #ff6f61, #debb77);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            margin-top: 20px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Welcome to Our Store</h1>
+    </header>
+
+    <!-- Navigation Menu with Icons -->
+    <nav>
+        <a href="HOME PAGE.html"><i class="fas fa-home"></i> Home</a>
+        <a href="SHOP PAGE.html"><i class="fas fa-shopping-cart"></i> Shop</a>
+        <a href="#"><i class="fas fa-info-circle"></i> About Us</a>
+        <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+    </nav>
+
+    <!-- Home Section (Big Pictures and Stories) -->
+    <div class="home-section">
+        <div class="home-item">
+            <img src="freshly.png" alt="Story Image 1">
+            <div class="caption">Delicious Fresh Foods</div>
+        </div>
+        <div class="home-item">
+            <img src="freshly.png" alt="Story Image 2">
+            <div class="caption">Healthy Living Starts Here</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Online Store. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Font Awesome JS for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script>
+        // Animation on page load for each home item
+        document.querySelectorAll('.home-item').forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.2}s`; // Stagger the animations
+            item.style.opacity = 1; // Make items visible after delay
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart | Online Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .cart-image {
+            width: 50px;
+        }
+
+        .cart-total {
+            font-size: 20px;
+            text-align: right;
+        }
+
+        .checkout-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .remove-btn, .update-btn {
+            background-color: #dc3545;
+            color: white;
+            cursor: pointer;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Shopping Cart</h1>
+    <table id="cartTable">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Cart items will be dynamically added here -->
+        </tbody>
+    </table>
+
+    <p class="cart-total" id="cartTotal">Total: $0.00</p>
+    <div class="checkout-btn">Checkout</div>
+
+    <script>
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartTable = document.getElementById('cartTable').getElementsByTagName('tbody')[0];
+            const cartTotal = document.getElementById('cartTotal');
+            let total = 0;
+
+            cartTable.innerHTML = ''; // Clear the cart table
+
+            cart.forEach((item, index) => {
+                const row = cartTable.insertRow();
+
+                const cell1 = row.insertCell(0);
+                const img = document.createElement('img');
+                img.src = item.image;
+                img.classList.add('cart-image');
+                cell1.appendChild(img);
+
+                const cell2 = row.insertCell(1);
+                cell2.textContent = item.name;
+
+                const cell3 = row.insertCell(2);
+                cell3.textContent = `$${item.price.toFixed(2)}`;
+
+                const cell4 = row.insertCell(3);
+                const quantityInput = document.createElement('input');
+                quantityInput.type = 'number';
+                quantityInput.value = item.quantity;
+                quantityInput.min = 1;
+                quantityInput.onchange = () => updateQuantity(index, quantityInput.value);
+                cell4.appendChild(quantityInput);
+
+                const cell5 = row.insertCell(4);
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                cell5.textContent = `$${itemTotal.toFixed(2)}`;
+
+                const cell6 = row.insertCell(5);
+                const removeBtn = document.createElement('button');
+                removeBtn.textContent = 'Remove';
+                removeBtn.classList.add('remove-btn');
+                removeBtn.onclick = () => removeFromCart(index);
+                cell6.appendChild(removeBtn);
+            });
+
+            cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        function updateQuantity(index, quantity) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart[index].quantity = parseInt(quantity);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1); // Remove the item from cart
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+            loadCart(); // Reload the cart
+        }
+
+        window.onload = loadCart;
+    </script>
+
+</body>
+</html>
